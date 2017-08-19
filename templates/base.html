@@ -18,6 +18,7 @@
 
   <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/pygments/{{ PYGMENTS_STYLE|default('github') }}.min.css">
   <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/academicons/css/academicons.css">
 
   {% if CUSTOM_CSS %}
     <link href="{{ SITEURL }}/{{ CUSTOM_CSS }}" rel="stylesheet">
@@ -112,7 +113,11 @@
 
       <ul class="social">
         {% for name, link in SOCIAL %}
+	{% if name in ['osf', 'google-scholar', 'orcid', 'academia', 'acclaim', 'acm', 'ads', 'arxiv', 'biorxiv', 'ceur' ,'courser', 'dataverse', 'dblp', 'depsy', 'doi', 'dryad', 'figshare', 'ieee', 'impactstory', 'inspire', 'mendeley', 'open-access', 'overleaf', 'philpapers', 'piazza', 'publons', 'pubmed', 'researchgate', 'scirate', 'springer', 'zotero'] %}
+	<li><a class="sc-{{ name }}" href="{{ link }}" target="_blank"><i class="ai ai-{{ name }}"></i></a></li>
+	{% else %}
         <li><a class="sc-{{ name }}" href="{{ link }}" target="_blank"><i class="fa fa-{{ name }}"></i></a></li>
+	{% endif %}
         {% endfor %}
       </ul>
     </div>
