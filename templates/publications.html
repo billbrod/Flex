@@ -20,12 +20,12 @@
     {% for yeargroup in publications|groupby(1)|reverse %}
     <!-- <h2> {{ yeargroup.grouper }} </h2> -->
     <ul>
-      {% for key, year, text, bibtex, pdf, slides, poster, video in yeargroup.list if "@article" in bibtex or "@Article" in bibtex %}
+      {% for key, year, text, bibtex, pdf, slides, poster, video, preprint in yeargroup.list if "@article" in bibtex or "@Article" in bibtex %}
       <p>
 	<li id="{{ key }}">{{ text }}
 	  <br />
 	  [&nbsp;<a href="javascript:disp('{{ bibtex|replace('\n', '\\n')|escape|forceescape }}');">Bibtex</a>&nbsp;]
-	  {% for label, target in [('PDF', pdf), ('Slides', slides), ('Poster', poster), ('Video', video)] %}
+	  {% for label, target in [('PDF', pdf), ('Slides', slides), ('Poster', poster), ('Video', video), ('Preprint', preprint)] %}
 	  {{ "[&nbsp;<a href=\"%s\">%s</a>&nbsp;]" % (target, label) if target }}
 	  {% endfor %}  
 	</li>
@@ -37,12 +37,12 @@
     {% for yeargroup in publications|groupby(1)|reverse %}
     <!-- <h2> {{ yeargroup.grouper }} </h2> -->
     <ul>
-      {% for key, year, text, bibtex, pdf, slides, poster, video in yeargroup.list if "@misc" in bibtex or "@Misc" in bibtex %}
+      {% for key, year, text, bibtex, pdf, slides, poster, video, preprint in yeargroup.list if "@misc" in bibtex or "@Misc" in bibtex %}
       <p>
 	<li id="{{ key }}">{{ text }}
 	  <br />
 	  [&nbsp;<a href="javascript:disp('{{ bibtex|replace('\n', '\\n')|escape|forceescape }}');">Bibtex</a>&nbsp;]
-	  {% for label, target in [('PDF', pdf), ('Slides', slides), ('Poster', poster), ('Video', video)] %}
+	  {% for label, target in [('PDF', pdf), ('Slides', slides), ('Poster', poster), ('Video', video), ('Preprint', preprint)] %}
 	  {{ "[&nbsp;<a href=\"%s\">%s</a>&nbsp;]" % (target, label) if target }}
 	  {% endfor %}  
 	</li>
